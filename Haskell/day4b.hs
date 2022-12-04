@@ -1,4 +1,4 @@
-module Day4a where 
+module Day4b where 
 import Data.List.Split(splitOn)
 
 intInput :: IO [Int]
@@ -9,11 +9,9 @@ splitThis s = map (splitOn "-")  (splitOn "," s)
 
 parseInt :: [[String]] -> Int
 parseInt [[b1,e1],[b2,e2]]
-  | bn1 == bn2  = 1
-  | en1 == en2  = 1
-  | (bn1 > bn2) && (en1 < en2) = 1
-  | (bn1 < bn2) && (en1 > en2) = 1
-  | otherwise = 0
+  | bn1 > en2  = 0
+  | en1 < bn2  = 0
+  | otherwise = 1
   where
     bn1 = read b1 :: Int
     en1 = read e1 :: Int
