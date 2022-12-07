@@ -1,4 +1,4 @@
-module Day2a where 
+module Day7a where 
 
 intInput :: IO [Int]
 intInput = map parseInt . lines <$> getContents
@@ -6,6 +6,9 @@ intInput = map parseInt . lines <$> getContents
 parseInt :: String -> Int
 parseInt string = 
   error ""
+
+ints :: String -> [Int]
+ints string = map read split
 
 main = do
   pointList <- intInput
