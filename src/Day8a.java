@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class Day8a {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int sum = 0;
+        Day8Forest forest = new Day8Forest();
+        String line;
 
-        while(sc.hasNext()){
-            String line = sc.nextLine();
-
+        while (sc.hasNext()) {
+            line = sc.nextLine();
+            forest.newRow();
+            for (char c: line.toCharArray()){
+                forest.add(c - '0');
+            }
         }
-        System.out.println(sum);
+        System.out.println(forest.countVisible());
     }
 }
